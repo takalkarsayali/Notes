@@ -1,2 +1,2 @@
 # Notes
-Practise makes man perfect
+Practice makes man perfect

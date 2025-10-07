@@ -1,0 +1,31 @@
+ETL (Extract–Transform–Load): Data is transformed before loading into the warehouse — e.g., cleaning sales data in Python and then loading it into Snowflake.
+ELT (Extract–Load–Transform): Raw data is first loaded and then transformed inside the warehouse — e.g., loading raw CSVs into BigQuery and transforming with SQL queries.
+
+OLTP (Online Transaction Processing): Used for real-time operations like inserting or updating records — e.g., handling orders and payments in an e-commerce app.
+OLAP (Online Analytical Processing): Used for analyzing large amounts of historical data — e.g., generating monthly sales reports from aggregated data.
+
+Data Lake: Stores raw and unstructured data like JSON logs or sensor readings — e.g., saving all app logs in AWS S3 for future analysis.
+Data Warehouse: Stores clean, structured data ready for analytics — e.g., loading processed customer and order tables into Redshift for reporting.
+
+Batch Processing: Processes data in chunks at scheduled times — e.g., running a nightly ETL job to update yesterday’s sales data.
+Streaming Processing: Handles data in real time as it arrives — e.g., detecting fraudulent transactions instantly using Kafka streams.
+
+Data Quality: Ensures data is correct and reliable — e.g., checking that customer emails are valid before loading into the system.
+Data Lineage: Tracks how data moves and transforms — e.g., tracing a revenue metric back from a Power BI dashboard to its source tables.
+
+1️⃣ Reading/Writing files – CSV, JSON, Excel → Pandas DataFrame.
+- Read CSV
+``` import pandas as pd
+    df = pd.read_csv('file.csv')
+    print(df.head()) ```
+-Clean Data
+  -Drop rows with missing values
+    df = df.dropna()
+  -rename colums for clarity
+  df = df.rename(columns={'Dept':'Departmen','old':'new'})
+  -convert data type
+  df['createdDate'] = pd.to_datetime(df['createDate'])
+-Transform Data
+  using these features groupby, merge, apply(), lambda functions.
+-Save the file to new csv file
+  result.to_csv("newFileName.csv",index=false)
